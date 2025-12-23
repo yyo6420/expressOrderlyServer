@@ -1,5 +1,7 @@
 import express from "express";
 import path from "path";
+import todos from "./routes/router.js";
+import getExampleHeaders from "./routes/routerExapmpleHeaders.js";
 
 const __dirname = path.resolve();
 const app = express();
@@ -25,8 +27,8 @@ app.get("/", async (req, res) => {
 });
 
 
-// example headers
-
+app.get("/todos", todos);
+app.get("/headers-example", getExampleHeaders)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}...`);
