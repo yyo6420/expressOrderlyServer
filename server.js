@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 8000;
 const TODOS_PATH = path.join(__dirname, "data", "todos.json");
 // another option: const TODOS_PATH = process.env.TODOS_PATH || __dirname + "/data/todos.json";
 
-// Body parser
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -17,7 +16,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// ================== ROUTES ===================
+app.use("/todos", todos);
+app.use("/headers-example", getExampleHeaders);
 
 app.get("/", async (req, res) => {
   res.json({
@@ -27,8 +27,6 @@ app.get("/", async (req, res) => {
 });
 
 
-app.get("/todos", todos);
-app.get("/headers-example", getExampleHeaders)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}...`);

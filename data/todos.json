@@ -3,8 +3,16 @@
     "id": 1,
     "title": "do the dishes",
     "description": "make the dishes be clean",
-    "completed": false,
+    "completed": true,
     "created_at": "2025-12-23 12:46:43",
-    "updated_at": "2025-12-23 12:46:43"
+    "updated_at": "2025-12-23 17:34:32"
+  },
+  {
+    "id": 2,
+    "title": "do the laundry",
+    "description": "make the laundry be clean",
+    "completed": false,
+    "created_at": "2025-12-23 17:36:10",
+    "updated_at": "2025-12-23 17:36:10"
   }
 ]

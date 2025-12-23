@@ -1,7 +1,5 @@
 import fs from "fs/promises";
 
-// ==================== UTILITY FUNCTIONS ====================
-
 export const getNextId = (todos) => {
   if (!todos || todos.length === 0) {
     return 1;
@@ -24,10 +22,6 @@ async function fileExists(filePath) {
   }
 }
 
-/**
- * Read todos from JSON file
- * @returns {Array} Array of todo objects
- */
 export const readTodos = async (path) => {
   if (!(await fileExists(path))) {
     return [];
@@ -36,15 +30,11 @@ export const readTodos = async (path) => {
     const data = await fs.readFile(path, "utf8");
     return JSON.parse(data);
   } catch (error) {
-    // If file is corrupted or empty, return empty array
     return [];
   }
 };
 
-/**
- * Write todos to JSON file
- * @param {Array} todos - Array of todo objects
- */
+
 export const writeTodos = async (todos, path) => {
   await fs.writeFile(path, JSON.stringify(todos, null, 2), "utf8");
 };
