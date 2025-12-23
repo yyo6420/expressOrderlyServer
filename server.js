@@ -1,15 +1,11 @@
 import express from "express";
 import path from "path";
-import { formatDate } from "./controllers/todosFunctions.js";
 
 const __dirname = path.resolve();
 const app = express();
 const PORT = process.env.PORT || 8000;
 const TODOS_PATH = path.join(__dirname, "data", "todos.json");
 // another option: const TODOS_PATH = process.env.TODOS_PATH || __dirname + "/data/todos.json";
-
-
-// =================== MIDDLEWARES ===================
 
 // Body parser
 app.use(express.json());
