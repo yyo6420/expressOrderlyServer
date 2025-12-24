@@ -53,8 +53,17 @@ export const updateTodo = async (req, res) => {
     } else {
       todo.title = body.title || todo.title;
       todo.description = body.description || todo.description;
-      todo.completed = body.completed || todo.completed;
+      let isCompleted;
+      if (body.completed === false || body.completed === "false") {
+        isCompleted = false;
+      } else if (body.completed === true || body.completed === "true") {
+        isCompleted = true;
+      } else {
+        isCompleted = todo.completed;
+      }
+      todo.completed = isCompleted;
       todo.updated_at = formatDate(new Date());
+
       await writeTodos(todos, TODOS_PATH);
       res.status(200).json({ success: true, data: todo });
     }
